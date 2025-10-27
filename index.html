@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background-color: rgba(211, 211, 211, 0.365);
+      }
+      section {
+        width: 250px;
+        height: 400px;
+        margin: auto;
+        display: flex;
+        border-radius: 7px;
+        overflow: hidden;
+        flex-direction: column;
+        background-color: #f0f8ff;
+        border: 2px solid #0077cc;
+      }
+      main {
+        width: 100%;
+        height: 85%;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      div {
+        display: flex;
+        align-items: center;
+        height: 15%;
+        padding: 0px 7%;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body class="py-5">
+    <section>
+      <main>
+        <img
+          id="show"
+          src="https://i.pinimg.com/1200x/ad/fa/cf/adfacf09e80ae61122fba4ecf19c13af.jpg"
+          alt=""
+        />
+      </main>
+
+      <div>
+        <button class="btn btn-warning" onclick="previous()">Previous</button>
+        <button class="btn btn-primary" onclick="next()">Next</button>
+      </div>
+    </section>
+  </body>
+</html>
+
+<script>
+  let show = document.getElementById("show");
+  let counter = 0;
+  const array = [
+    "https://i.pinimg.com/1200x/ad/fa/cf/adfacf09e80ae61122fba4ecf19c13af.jpg",
+    "https://i.pinimg.com/736x/b7/ad/f4/b7adf42d581f8024a204e3791ce69e91.jpg",
+    "https://i.pinimg.com/736x/ff/25/50/ff25507be662447e68bfed3b3172a9f4.jpg",
+    "https://i.pinimg.com/736x/9c/7c/c4/9c7cc4e95368d83dd9eb501bae293878.jpg",
+    "https://i.pinimg.com/736x/d9/7f/ee/d97feeb3770aa383735ca13fc188c310.jpg",
+    "https://i.pinimg.com/736x/fa/86/b3/fa86b326a8f83502f97c9f6275d6828f.jpg",
+  ];
+
+  function next() {
+    if (counter === array.length - 1) {
+      counter = 0;
+    } else {
+      counter++;
+    }
+    show.src = array[counter];
+  }
+
+  function previous() {
+    if (counter === 0) {
+      counter = array.length - 1;
+    } else {
+      counter--;
+    }
+    show.src = array[counter];
+  }
+</script>
